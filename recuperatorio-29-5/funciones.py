@@ -193,20 +193,28 @@ def reporte(usuario):
 
 def simetrico(usuario):
 
-    i = 0
-    j = len(usuario) - 1
+    n = len(usuario)
 
-    while i < j:
+    # si la longitud es impar, no se puede dividir en dos mitades exactas
+    if n % 2 != 0:
+        print("No tiene dos mitades iguales")
+        return
 
-        if ord(usuario[i]) != ord(usuario[j]):
-            print("No es simétrico")
-            return
+    mitad = n // 2
 
-        i += 1
-        j -= 1
+    primera = ""
+    segunda = ""
 
-    print("Es simétrico")
+    for i in range(mitad):
+        primera = primera + usuario[i]
 
+    for i in range(mitad, n):
+        segunda = segunda + usuario[i]
+
+    if primera == segunda:
+        print("Las mitades son iguales")
+    else:
+        print("Las mitades no son iguales")
 
 def ordenar(usuario, orden):
 
